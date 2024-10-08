@@ -8,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class StringCalculatorComponent implements OnInit {
   total: number | undefined;
   numberString: string = '';
+  negativeNumbers: number[] | undefined;
+  isDisplayErr: boolean = false;
 
   constructor() { }
 
@@ -20,9 +22,10 @@ export class StringCalculatorComponent implements OnInit {
     }
     const numArray = numbers.replace(/\\n/g, '\n').split(/[\n,;]/).map(num => parseInt(num.trim(), 10));
     
-    const negativeNumbers = numArray.filter(num => num < 0);
-    if (negativeNumbers.length > 0) {
-      throw new Error(`negative numbers not allowed: ${negativeNumbers.join(', ')}`);
+    this.negativeNumbers = numArray.filter(num => num < 0);
+    if (this.negativeNumbers.length > 0) {
+      this.isDisplayErr = true;
+      throw new Error(`negative numbers not allowed: ${this.negativeNumbers.join(', ')}`);
     }
 
     const sum = numArray.reduce((acc, curr) => acc + (isNaN(curr) ? 0 : curr), 0);

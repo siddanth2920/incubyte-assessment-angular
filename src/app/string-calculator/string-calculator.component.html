@@ -6,7 +6,10 @@
     <div>
         <button class="btn-success" (click)="calculateSum()">Calculate Sum</button>
     </div>
-    <div>
+    <div *ngIf="!isDisplayErr">
         <h3>Total: {{ total }}</h3>
+    </div>
+    <div *ngIf="isDisplayErr">
+        <h3>Error: negative numbers not allowed {{ negativeNumbers }}</h3>
     </div>
 </div>
