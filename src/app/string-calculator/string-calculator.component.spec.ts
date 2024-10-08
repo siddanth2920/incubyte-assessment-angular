@@ -43,4 +43,8 @@ describe('StringCalculatorComponent', () => {
     const output = component.add('1;2\n3');
     expect(output).toBe(6);
   });
+  it('should throw an exception if there is a negative number', () => {
+    expect(() => component.add('1,3,-2')).toThrowError('negative numbers not allowed: -2');
+  });
+
 });
