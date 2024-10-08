@@ -10,6 +10,7 @@ export class StringCalculatorComponent implements OnInit {
   numberString: string = '';
   negativeNumbers: number[] | undefined;
   isDisplayErr: boolean = false;
+  delimiter: RegExp | undefined;
 
   constructor() { }
 
@@ -20,7 +21,15 @@ export class StringCalculatorComponent implements OnInit {
     if (!numbers) {
       return 0;
     }
-    const numArray = numbers.replace(/\\n/g, '\n').split(/[\n,;]/).map(num => parseInt(num.trim(), 10));
+    const numStr = numbers.replace(/\\n/g, '\n')
+    if(numStr.startsWith('//')){
+     const newArr = numStr.split(/[\n]/);
+     const y = newArr[0].slice(2);
+     this.delimiter = new RegExp(y);;
+    } else {
+      this.delimiter = /[\n,;]/;
+    }
+    const numArray = numStr.split(this.delimiter).map(num => parseInt(num.trim(), 10));
     
     this.negativeNumbers = numArray.filter(num => num < 0);
     if (this.negativeNumbers.length > 0) {

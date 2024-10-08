@@ -46,5 +46,8 @@ describe('StringCalculatorComponent', () => {
   it('should throw an exception if there is a negative number', () => {
     expect(() => component.add('1,3,-2')).toThrowError('negative numbers not allowed: -2');
   });
-
+  it('should handle custom delimiter', () => {
+    const output = component.add('//%\n1%6');
+    expect(output).toBe(7);
+  });
 });
