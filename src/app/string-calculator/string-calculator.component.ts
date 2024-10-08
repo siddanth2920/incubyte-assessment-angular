@@ -18,6 +18,9 @@ export class StringCalculatorComponent implements OnInit {
     if (!numbers) {
       return 0;
     }
+    const numArray = numbers.split(',').map(num => parseInt(num, 10));
+    const sum = numArray.reduce((acc, curr) => acc + curr);
+    return sum;
   }
 
   // Method called when the button is clicked

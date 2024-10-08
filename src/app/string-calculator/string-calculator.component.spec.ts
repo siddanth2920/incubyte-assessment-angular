@@ -27,4 +27,12 @@ describe('StringCalculatorComponent', () => {
     const output = component.add('');
     expect(output).toBe(0);
   });
+  it('should add comma seperated numbers', () => {
+    const output = component.add('1,3');
+    expect(output).toBe(4);
+  });
+  it('should convert non-numerical to 0', () => {
+    const output = component.add('randomstr');
+    expect(output).toBe(0);
+  });
 });
