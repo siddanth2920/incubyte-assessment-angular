@@ -35,4 +35,16 @@ describe('StringCalculatorComponent', () => {
     const output = component.add('str');
     expect(output).toBe(0);
   });
+  it('should handle new line(/n) delimiter', () => {
+    const output = component.add('1/n2/n3');
+    expect(output).toBe(6);
+  });
+  it('should handle ; delimiter', () => {
+    const output = component.add('1;2/n3');
+    expect(output).toBe(6);
+  });
+  it('should handle // delimiter', () => {
+    const output = component.add('1;2//n3');
+    expect(output).toBe(6);
+  });
 });

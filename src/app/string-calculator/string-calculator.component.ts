@@ -13,19 +13,18 @@ export class StringCalculatorComponent implements OnInit {
 
   ngOnInit(): void {
   }
-   // Method to add numbers from a string
-   add(numbers: string): any {
+
+  add(numbers: string): any {
     if (!numbers) {
       return 0;
     }
-    const numArray = numbers.split(',').map(num => parseInt(num, 10));
+    const numArray = numbers.split(/[/n,;//]/).map(num => parseInt(num, 10));
     const sum = numArray.reduce((acc, curr) => acc + (isNaN(curr) ? 0 : curr), 0);
     return sum;
   }
 
-  // Method called when the button is clicked
   calculateSum() {
-   this.total = this.add(this.numberString);
+    this.total = this.add(this.numberString);
   }
 
 }
