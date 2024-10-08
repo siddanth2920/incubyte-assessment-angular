@@ -1,0 +1,12 @@
+<div>
+    <div>
+        <label>Enter Numbers (comma-separated):</label>
+        <input type="text" placeholder="e.g., 1,2,3" [(ngModel)]="numberString" />
+    </div>
+    <div>
+        <button class="btn-success" (click)="calculateSum()">Calculate Sum</button>
+    </div>
+    <div>
+        <h3>Total: {{ total }}</h3>
+    </div>
+</div>
