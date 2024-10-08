@@ -19,7 +19,7 @@ export class StringCalculatorComponent implements OnInit {
       return 0;
     }
     const numArray = numbers.split(',').map(num => parseInt(num, 10));
-    const sum = numArray.reduce((acc, curr) => acc + curr);
+    const sum = numArray.reduce((acc, curr) => acc + (isNaN(curr) ? 0 : curr), 0);
     return sum;
   }
 

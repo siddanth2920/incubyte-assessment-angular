@@ -32,7 +32,7 @@ describe('StringCalculatorComponent', () => {
     expect(output).toBe(4);
   });
   it('should convert non-numerical to 0', () => {
-    const output = component.add('randomstr');
+    const output = component.add('str');
     expect(output).toBe(0);
   });
 });
