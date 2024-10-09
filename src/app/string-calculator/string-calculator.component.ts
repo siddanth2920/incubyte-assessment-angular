@@ -35,6 +35,8 @@ export class StringCalculatorComponent implements OnInit {
     if (this.negativeNumbers.length > 0) {
       this.isDisplayErr = true;
       throw new Error(`negative numbers not allowed: ${this.negativeNumbers.join(', ')}`);
+    } else {
+      this.isDisplayErr = false;
     }
 
     const sum = numArray.reduce((acc, curr) => acc + (isNaN(curr) ? 0 : curr), 0);

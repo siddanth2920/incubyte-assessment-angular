@@ -1,15 +1,17 @@
-<div>
+<div class="calculator-container">
+    <h5 class="cal-head">String Calculator</h5>
     <div>
-        <label>Enter Numbers (comma-separated):</label>
-        <input type="text" placeholder="e.g., 1,2,3" [(ngModel)]="numberString" />
+        <label class="cal-label">Enter Numbers (comma-separated):</label>
+        <input class="str-input" type="text" placeholder="e.g., 1,2,3" [(ngModel)]="numberString" />
     </div>
-    <div>
-        <button class="btn-success" (click)="calculateSum()">Calculate Sum</button>
+
+    <div class="cal-btn">
+        <button class="btn btn-primary mr-3 action-btn" (click)="calculateSum()">Calculate Sum</button>
     </div>
-    <div *ngIf="!isDisplayErr">
+    <div class="str-total" *ngIf="!isDisplayErr">
         <h3>Total: {{ total }}</h3>
     </div>
-    <div *ngIf="isDisplayErr">
+    <div class="str-err" *ngIf="isDisplayErr">
         <h3>Error: negative numbers not allowed {{ negativeNumbers }}</h3>
     </div>
 </div>
